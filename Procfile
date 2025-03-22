@@ -1,0 +1,1 @@
+web: gunicorn blogify.wsgi:application --log-file -
