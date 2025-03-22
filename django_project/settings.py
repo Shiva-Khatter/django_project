@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-_n)a0g&g(nwj+afk2=e6#gc^ea
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_celery_beat',
     'django_apscheduler',
 ]
 
@@ -131,15 +130,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGOUT_REDIRECT_URL = 'login'  
 
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-
-# Update Celery settings to use environment variables for Heroku Redis
-CELERY_BROKER_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
-CELERY_RESULT_BACKEND = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -152,7 +142,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 SCHEDULER_CONFIG = {
     "apscheduler.jobstores.default": {
         "type": "sqlalchemy",
-        "url": "sqlite:///scheduler.db",  # Store jobs in a SQLite database
+        "url": os.getenv('DATABASE_URL', 'sqlite:///scheduler.db'),  # Use Heroku's DATABASE_URL, fallback to SQLite locally
     },
     "apscheduler.executors.default": {
         "class": "apscheduler.executors.pool:ThreadPoolExecutor",
@@ -160,6 +150,6 @@ SCHEDULER_CONFIG = {
     },
     "apscheduler.job_defaults.coalesce": "false",
     "apscheduler.job_defaults.max_instances": "3",
-    "apscheduler.timezone": "UTC",
+    "apscheduler.timezone": "Asia/Kolkata",  # Match your TIME_ZONE
 }
 SCHEDULER_AUTOSTART = True
