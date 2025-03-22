@@ -24,9 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-_n)a0g&g(nwj+afk2=e6#gc^eaj7o@8ongxz()3diqvc9djpck')  # Use env variable for production
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'True'
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-project.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
