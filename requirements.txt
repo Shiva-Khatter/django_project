@@ -4,7 +4,7 @@ gunicorn==23.0.0
 whitenoise==6.9.0
 psycopg2-binary==2.9.10
 django-crispy-forms==2.3
-crispy-bootstrap4==2024.10
+crispy-bootstrap5==2024.1
 django-apscheduler==0.7.0
 APScheduler==3.11.0
 tzlocal==5.3.1

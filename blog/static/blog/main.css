@@ -2,10 +2,12 @@ body {
   background: #e8dcc7;
   color: #3d3429;
   margin-top: 5rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #3d3429;
+  font-family: 'Playfair Display', serif;
 }
 
 ul {
@@ -18,6 +20,7 @@ ul {
 
 .site-header .navbar-nav .nav-link {
   color: #f8cea9;
+  transition: color 0.3s ease;
 }
 
 .site-header .navbar-nav .nav-link:hover {
@@ -32,13 +35,20 @@ ul {
   background: #f5efe3;
   padding: 15px 25px;
   border: 1px solid #b79d84;
-  border-radius: 3px;
+  border-radius: 8px;
   margin-bottom: 20px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.content-section:hover {
+  transform: translateY(-3px);
 }
 
 .article-title {
   color: #3d3429;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 a.article-title:hover {
@@ -48,6 +58,9 @@ a.article-title:hover {
 
 .article-content {
   white-space: pre-line;
+  color: #3d3429;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .article-img {
@@ -55,11 +68,13 @@ a.article-title:hover {
   width: 65px;
   margin-right: 16px;
   object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #b79d84;
 }
 
 .article-metadata {
   padding-bottom: 1px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #b79d84;
 }
 
@@ -80,6 +95,7 @@ a.article-title:hover {
   margin-right: 20px;
   margin-bottom: 16px;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .account-heading {
@@ -111,15 +127,16 @@ a.article-title:hover {
   font-weight: bold;
 }
 
-.btn-pagination:hover, 
-.btn-pagination:focus, 
+.btn-pagination:hover,
+.btn-pagination:focus,
 .btn-pagination:active {
-    background-color: #6b4226 !important; /* Darker brown */
-    border-color: #8b5e3b !important;
-    color: #ffffff !important;
-    outline: none !important;
-    box-shadow: none !important;
+  background-color: #6b4226 !important;
+  border-color: #8b5e3b !important;
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
+
 .btn-custom-brown {
   background-color: #8b5e3b;
   color: #ffffff;
@@ -146,4 +163,116 @@ a.article-title:hover {
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+/* Sparkle Animation */
+.sparkle {
+  color: hsla(51, 100%, 77%, 0.979); /* Gold sparkle */
+  font-size: 1.2em;
+  margin-left: 5px;
+}
+
+.generate-btn:hover .sparkle {
+  animation: sparkle 1s infinite;
+}
+
+@keyframes sparkle {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Tooltip Styling */
+.tooltip-inner {
+  background-color: #8b5e3b;
+  color: #ffffff;
+}
+
+.tooltip .tooltip-arrow::before {
+  border-bottom-color: #8b5e3b;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #8b5e3b 0%, #b79d84 100%);
+  color: #ffffff;
+  padding: 60px 30px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+/* Post Card */
+.post-card {
+  background: #f5efe3;
+  border: 1px solid #b79d84;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.post-card .card-body {
+  padding: 20px;
+}
+
+.post-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3d3429;
+}
+
+.post-card .card-text {
+  color: #3d3429;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.post-card .text-muted {
+  font-size: 0.9rem;
+}
+
+/* Pagination */
+.pagination .page-item .page-link {
+  color: #8b5e3b;
+  border: 1px solid #b79d84;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #8b5e3b;
+  border-color: #8b5e3b;
+  color: #ffffff;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #6b4226;
+  border-color: #6b4226;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #b79d84;
+  border-color: #b79d84;
 }
