@@ -21,18 +21,28 @@ ul {
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #ff00ff; /* Neon pink for nav links */
+  color: #e0e0e0; /* Light gray for nav links */
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .site-header .navbar-nav .nav-link:hover {
   color: #00eaff; /* Neon cyan on hover */
-  text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff;
+  text-shadow: 0 0 3px #00eaff; /* Subtle glow on hover */
 }
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
   color: #00eaff;
+}
+
+.generate-btn {
+  color: #39ff14; /* Neon green for Generate with AI */
+  text-shadow: 0 0 3px rgba(57, 255, 20, 0.5); /* Subtle green glow */
+}
+
+.generate-btn:hover {
+  color: #00eaff; /* Neon cyan on hover */
+  text-shadow: 0 0 3px #00eaff; /* Subtle cyan glow */
 }
 
 .content-section {
@@ -51,16 +61,17 @@ ul {
 }
 
 .article-title {
-  color: #ff00ff; /* Neon pink for titles */
+  color: #e0e0e0; /* Light gray for better readability */
   font-size: 1.5rem;
   font-weight: 700;
   transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 3px rgba(0, 234, 255, 0.5); /* Subtle cyan glow */
 }
 
 a.article-title:hover {
   color: #00eaff; /* Neon cyan on hover */
   text-decoration: none;
-  text-shadow: 0 0 5px #00eaff, 0 0 10px #00eaff;
+  text-shadow: 0 0 5px #00eaff; /* Slightly stronger glow on hover */
 }
 
 .article-content {
@@ -287,6 +298,7 @@ a.article-title:hover {
   background: linear-gradient(45deg, transparent, rgba(255, 0, 255, 0.1), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none; /* Ensure the overlay doesn’t block clicks */
 }
 
 .post-card:hover::before {
@@ -295,6 +307,8 @@ a.article-title:hover {
 
 .post-card .card-body {
   padding: 20px;
+  position: relative; /* Ensure content is above the ::before overlay */
+  z-index: 1; /* Higher z-index to ensure clickability */
 }
 
 .post-card .card-title {
@@ -312,6 +326,19 @@ a.article-title:hover {
 .post-card .text-muted {
   font-size: 0.9rem;
   color: #39ff14; /* Neon green */
+}
+
+/* Sidebar Links */
+.list-group-item a {
+  position: relative;
+  z-index: 1;
+  color: #ff00ff; /* Neon pink */
+  transition: color 0.3s ease;
+}
+
+.list-group-item a:hover {
+  color: #00eaff; /* Neon cyan on hover */
+  text-decoration: none;
 }
 
 /* Pagination */
