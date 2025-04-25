@@ -9,7 +9,6 @@ import google.generativeai as genai
 from decouple import config
 from pyairtable import Table
 from datetime import datetime
-
 # Loading Airtable configuration
 AIRTABLE_API_KEY = config('AIRTABLE_API_KEY')
 AIRTABLE_BASE_ID = "appxq6U5GJiWQ2CF5"
