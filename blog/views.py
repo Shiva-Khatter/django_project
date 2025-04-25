@@ -464,9 +464,9 @@ class GenerateBlogView(LoginRequiredMixin, View):
             }
 
             try:
-                # Saving the record to Airtable
+                # Saving the record onto Airtable
                 airtable.create(record)
-                # Clearing session data
+                # Clearing the session data 
                 request.session['drafts'] = []
                 request.session['topic'] = ''
                 request.session['primary_keyword'] = ''
