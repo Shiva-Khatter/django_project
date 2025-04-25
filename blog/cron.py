@@ -13,14 +13,14 @@ def publish_scheduled_blogs():
     airtable_url = f"https://api.airtable.com/v0/{airtable_base_id}/{airtable_table_name}"
 
     # WordPress configuration
-    wordpress_url = config('WORDPRESS_URL')  # e.g., https://your-site.com/wp-json/wp/v2/posts
+    wordpress_url = config('WORDPRESS_URL')  
     wordpress_username = config('WORDPRESS_USERNAME')
     wordpress_password = config('WORDPRESS_PASSWORD')
 
     # Getting the current time in UTC
     current_time = datetime.utcnow().replace(tzinfo=pytz.UTC)
 
-    # Fetch records from Airtable
+    # Fetching the records from Airtable
     headers = {
         'Authorization': f'Bearer {airtable_api_key}',
         'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ def publish_scheduled_blogs():
         title = fields.get('Title', '')
         content = fields.get('Content', '')
 
-        # Posting to WordPress
+        # Posting onto WordPress
         wp_headers = {
             'Content-Type': 'application/json',
         }
@@ -65,7 +65,7 @@ def publish_scheduled_blogs():
             print(f"Error publishing to WordPress: {str(e)}")
             continue
 
-        # Updating the Airtable record with WordPress Post ID and Status
+        # Updating the Airtable record with WordPress Post ID and Status (draft/ scheduled and published)
         update_data = {
             'fields': {
                 'WordPress Post ID': str(wp_post_id),
