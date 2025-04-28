@@ -1,6 +1,6 @@
 body {
   background: #1a1a1a; /* Dark gray-black background */
-  color: #e0e0e0; /* Light gray text for readability */
+  color: #e0e0e0; /* Light gray text for better readability */
   margin-top: 5rem;
   font-family: 'Exo 2', sans-serif;
 }
@@ -36,7 +36,7 @@ ul {
 }
 
 .generate-btn {
-  color: #e0b0ff; /* Light purple for better visibility */
+  color: #e0b0ff; /* Light purple for  better visibility */
   text-shadow: 0 0 5px rgba(224, 176, 255, 0.7); /* Slightly stronger purple glow */
 }
 
