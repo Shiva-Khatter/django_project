@@ -38,7 +38,7 @@ class BlogCraftView(LoginRequiredMixin, View):
         print("POST: Method called")
         print(f"POST data: {request.POST}")
 
-        # Get form data
+        # Getting form data
         topic = request.POST.get('topic', '').strip()
         primary_keyword = request.POST.get('primary_keyword', '').strip()
         additional_keywords = request.POST.get('additional_keywords', '').strip()
