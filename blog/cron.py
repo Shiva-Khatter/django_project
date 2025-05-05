@@ -7,6 +7,7 @@ def publish_scheduled_blogs():
     print("Cron job running: Checking for blogs to publish...")
 
     # Airtable configuration
+    
     airtable_api_key = config('AIRTABLE_API_KEY')
     airtable_base_id = config('AIRTABLE_BASE_ID')
     airtable_table_name = 'Blog Posts'
