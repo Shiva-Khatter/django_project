@@ -243,6 +243,7 @@ class BlogCraftView(LoginRequiredMixin, View):
                             'grammar_result': request.session.get('grammar_result', ''),
                         })
 
+                    
                     # Getting the current timestamp for the "Created At" field (without microseconds)
                     created_at = datetime.utcnow()
                     created_at_iso = created_at.strftime('%Y-%m-%dT%H:%M:%S') + '.000Z'
