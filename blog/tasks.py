@@ -10,6 +10,7 @@ logger = get_task_logger(__name__)
 
 genai.configure(api_key="AIzaSyDnQKVzA9vipdW_Idy3YJRmov95gCONsoM")  # Same key as in views.py
 
+
 @shared_task
 def process_scheduled_posts():
     now = timezone.now()
