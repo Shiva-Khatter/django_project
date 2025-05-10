@@ -153,4 +153,3 @@ SCHEDULER_CONFIG = {
     "apscheduler.timezone": "Asia/Kolkata",  # Match your TIME_ZONE
 }
 SCHEDULER_AUTOSTART = True
-
